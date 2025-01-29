@@ -15,77 +15,7 @@
 
  
 
-    <script>
-        const slider = document.getElementById("videoSlider");
-        let isDown = false;
-        let startX;
-        let scrollLeft;
-        let isDragging = false;
-
-        // عند بدء السحب
-        slider.addEventListener("mousedown", (e) => {
-            isDown = true;
-            isDragging = false;
-            startX = e.pageX - slider.offsetLeft;
-            scrollLeft = slider.scrollLeft;
-        });
-
-        // عند مغادرة الماوس
-        slider.addEventListener("mouseleave", () => {
-            isDown = false;
-        });
-
-        // عند رفع الماوس
-        slider.addEventListener("mouseup", () => {
-            isDown = false;
-        });
-
-        // عند تحريك الماوس
-        slider.addEventListener("mousemove", (e) => {
-            if (!isDown) return;
-            e.preventDefault();
-            isDragging = true;
-            const x = e.pageX - slider.offsetLeft;
-            const walk = (x - startX) * 2;
-            slider.scrollLeft = scrollLeft - walk;
-        });
-
-        // عند بدء السحب باستخدام التاتش
-        slider.addEventListener("touchstart", (e) => {
-            isDown = true;
-            isDragging = false;
-            startX = e.touches[0].pageX - slider.offsetLeft;
-            scrollLeft = slider.scrollLeft;
-        });
-
-        // عند تحريك التاتش
-        slider.addEventListener("touchmove", (e) => {
-            if (!isDown) return;
-            isDragging = true;
-            const x = e.touches[0].pageX - slider.offsetLeft;
-            const walk = (x - startX) * 2;
-            slider.scrollLeft = scrollLeft - walk;
-        });
-
-        // عند إنهاء السحب باستخدام التاتش
-        slider.addEventListener("touchend", () => {
-            isDown = false;
-        });
-
-        // منطق تشغيل وإيقاف الفيديو عند الضغط على الزر
-        document.querySelectorAll(".video-thumb").forEach((video) => {
-            video.addEventListener("click", () => {
-                // إذا كان الفيديو موقوفًا أو يتم تشغيله
-                if (!isDragging) {
-                    if (video.paused) {
-                        video.play();
-                    } else {
-                        video.pause();
-                    }
-                }
-            });
-        });
-    </script>
+   
 
 </body>
 </html>
