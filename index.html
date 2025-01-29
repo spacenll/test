@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سلايدر فيديو بالسحب</title>
-    <link rel="stylesheet" href="style.css">
+    <title>سلايدر فيديو بالسحب مع مشغل Plyr</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/plyr@3.6.2/dist/plyr.css" />
+        <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
 
@@ -14,98 +16,41 @@
             <div class="video-slider" id="videoSlider">
                 <!-- فيديو 1 -->
                 <div class="video-slide">
-                    <video class="video-thumb" src="https://media.zid.store/974d543a-b286-4efa-9b0e-e09fcc6e8408/23de9568-c684-44e0-aa72-b09ca3946d79.mp4#t=0.001" poster="poster1.jpg"></video>
-                    <button class="video-thumb-play">▶</button>
+                    <video class="video-thumb" id="video1" controls>
+                        <source src="https://media.zid.store/974d543a-b286-4efa-9b0e-e09fcc6e8408/23de9568-c684-44e0-aa72-b09ca3946d79.mp4" type="video/mp4">
+                    </video>
                     <p class="video-title">مشهور 2</p>
                 </div>
 
                 <!-- فيديو 2 -->
                 <div class="video-slide">
-                    <video class="video-thumb" src="https://media.zid.store/974d543a-b286-4efa-9b0e-e09fcc6e8408/23de9568-c684-44e0-aa72-b09ca3946d79.mp4#t=0.001" poster="poster2.jpg"></video>
-                    <button class="video-thumb-play">▶</button>
+                    <video class="video-thumb" id="video2" controls>
+                        <source src="https://media.zid.store/974d543a-b286-4efa-9b0e-e09fcc6e8408/23de9568-c684-44e0-aa72-b09ca3946d79.mp4" type="video/mp4">
+                    </video>
                     <p class="video-title">مشهور 3</p>
                 </div>
 
                 <!-- فيديو 3 -->
                 <div class="video-slide">
-                    <video class="video-thumb" src="https://media.zid.store/974d543a-b286-4efa-9b0e-e09fcc6e8408/23de9568-c684-44e0-aa72-b09ca3946d79.mp4#t=0.001" poster="poster3.jpg"></video>
-                    <button class="video-thumb-play">▶</button>
+                    <video class="video-thumb" id="video3" controls>
+                        <source src="https://media.zid.store/974d543a-b286-4efa-9b0e-e09fcc6e8408/23de9568-c684-44e0-aa72-b09ca3946d79.mp4" type="video/mp4">
+                    </video>
                     <p class="video-title">مشهور 4</p>
                 </div>
             </div>
         </div>
     </section>
 
-   <script>
-    const slider = document.getElementById("videoSlider");
-    let isDown = false;
-    let startX;
-    let scrollLeft;
-    let isDragging = false;
+    <!-- إضافة مكتبة Plyr -->
+    <script src="https://cdn.jsdelivr.net/npm/plyr@3.6.2/dist/plyr.js"></script>
 
-    slider.addEventListener("mousedown", (e) => {
-        isDown = true;
-        isDragging = false;
-        startX = e.pageX - slider.offsetLeft;
-        scrollLeft = slider.scrollLeft;
-    });
-
-    slider.addEventListener("mouseleave", () => {
-        isDown = false;
-    });
-
-    slider.addEventListener("mouseup", () => {
-        isDown = false;
-    });
-
-    slider.addEventListener("mousemove", (e) => {
-        if (!isDown) return;
-        e.preventDefault();
-        isDragging = true;
-        const x = e.pageX - slider.offsetLeft;
-        const walk = (x - startX) * 2;
-        slider.scrollLeft = scrollLeft - walk;
-    });
-
-    slider.addEventListener("touchstart", (e) => {
-        isDown = true;
-        isDragging = false;
-        startX = e.touches[0].pageX - slider.offsetLeft;
-        scrollLeft = slider.scrollLeft;
-    });
-
-    slider.addEventListener("touchmove", (e) => {
-        if (!isDown) return;
-        isDragging = true;
-        const x = e.touches[0].pageX - slider.offsetLeft;
-        const walk = (x - startX) * 2;
-        slider.scrollLeft = scrollLeft - walk;
-    });
-
-    slider.addEventListener("touchend", () => {
-        isDown = false;
-    });
-
-    // تحديث منطق تشغيل وإيقاف الفيديو
-    document.querySelectorAll(".video-thumb-play").forEach((button) => {
-        button.addEventListener("click", (e) => {
-            const video = e.target.previousElementSibling;
-            
-            if (!isDragging) {
-                if (video.paused) {
-                    // عند الضغط على زر التشغيل، يتم تشغيل الفيديو
-                    video.play();
-                    e.target.style.display = "none"; // إخفاء زر التشغيل عند تشغيل الفيديو
-                } else {
-                    // عند الضغط على زر الإيقاف، يتم إيقاف الفيديو
-                    video.pause();
-                    e.target.style.display = "block"; // إظهار زر التشغيل عند إيقاف الفيديو
-                }
-            }
+    <script>
+        // تهيئة مشغل Plyr لجميع الفيديوهات
+        const players = new Plyr('.video-thumb', {
+            captions: { active: true, language: 'ar' },
+            fullscreen: { enabled: true },
         });
-    });
-</script>
-
+    </script>
 
 </body>
 </html>
