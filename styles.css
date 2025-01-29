@@ -1,50 +1,53 @@
-.home-slider {
-    position: relative;
-    padding-top: 2rem;
-    padding-bottom: 3rem;
-    overflow: hidden;
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
 }
 
 .container-extra-wide {
-    max-width: 100%;
+    width: 90%;
     margin: auto;
-    padding: 0 1rem;
+    overflow: hidden;
+    padding: 20px 0;
 }
 
 .section-title {
     text-align: center;
+    font-size: 24px;
     margin-bottom: 20px;
 }
 
-.swiper {
-    width: 100%;
-    overflow: hidden;
-    padding-bottom: 20px;
-}
-
-.swiper-wrapper {
+.video-slider {
     display: flex;
-    transition: transform 0.3s ease-in-out;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    cursor: grab;
+    padding-bottom: 10px;
+    user-select: none;
+    scrollbar-width: none;
 }
 
-.swiper-slide {
-    width: 240px;
-    margin: 0 5px;
-    flex-shrink: 0;
-    position: relative;
+.video-slider::-webkit-scrollbar {
+    display: none;
 }
 
-.video-thumb-wrapper {
+.video-slide {
     position: relative;
-    cursor: pointer;
+    min-width: 300px;
+    max-width: 300px;
     border-radius: 10px;
     overflow: hidden;
+    background: #fff;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .video-thumb {
     width: 100%;
-    height: auto;
-    display: block;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 .video-thumb-play {
@@ -52,31 +55,17 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: rgba(64, 64, 64, 0.5);
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-}
-
-.video-actions {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-}
-
-.add-to-cart-btn {
-    background-color: #ff6600;
-    border: none;
+    background: rgba(0, 0, 0, 0.7);
     color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
+    border: none;
+    font-size: 24px;
+    padding: 10px;
+    border-radius: 50%;
     cursor: pointer;
 }
 
 .video-title {
     text-align: center;
-    font-size: 16px;
-    margin-top: 5px;
+    font-size: 18px;
+    margin-top: 10px;
 }
