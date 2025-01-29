@@ -33,7 +33,7 @@ body {
 
 .video-slide {
     position: relative;
-    min-width: 200px;
+    min-width: 300px; /* Increase size for videos */
     flex-shrink: 0;
     border-radius: 10px;
     overflow: hidden;
@@ -56,10 +56,10 @@ body {
     background: rgba(0, 0, 0, 0.6);
     color: white;
     border: none;
-    font-size: 24px;
+    font-size: 30px; /* Adjusted size */
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: 60px; /* Adjusted size */
+    height: 60px; /* Adjusted size */
     display: flex;
     align-items: center;
     justify-content: center;
