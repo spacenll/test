@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>سلايدر فيديو بالسحب مع مشغل Plyr</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/plyr@3.6.2/dist/plyr.css" />
-        <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -51,75 +50,78 @@
             fullscreen: { enabled: true },
         });
     </script>
-<script>
-    const slider = document.getElementById("videoSlider");
-    let isDown = false;
-    let startX;
-    let scrollLeft;
-    let isDragging = false;
 
-    slider.addEventListener("mousedown", (e) => {
-        isDown = true;
-        isDragging = false;
-        startX = e.pageX - slider.offsetLeft;
-        scrollLeft = slider.scrollLeft;
-    });
+    <script>
+        const slider = document.getElementById("videoSlider");
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+        let isDragging = false;
 
-    slider.addEventListener("mouseleave", () => {
-        isDown = false;
-    });
-
-    slider.addEventListener("mouseup", () => {
-        isDown = false;
-    });
-
-    slider.addEventListener("mousemove", (e) => {
-        if (!isDown) return;
-        e.preventDefault();
-        isDragging = true;
-        const x = e.pageX - slider.offsetLeft;
-        const walk = (x - startX) * 2;
-        slider.scrollLeft = scrollLeft - walk;
-    });
-
-    slider.addEventListener("touchstart", (e) => {
-        isDown = true;
-        isDragging = false;
-        startX = e.touches[0].pageX - slider.offsetLeft;
-        scrollLeft = slider.scrollLeft;
-    });
-
-    slider.addEventListener("touchmove", (e) => {
-        if (!isDown) return;
-        isDragging = true;
-        const x = e.touches[0].pageX - slider.offsetLeft;
-        const walk = (x - startX) * 2;
-        slider.scrollLeft = scrollLeft - walk;
-    });
-
-    slider.addEventListener("touchend", () => {
-        isDown = false;
-    });
-
-    // تحديث منطق تشغيل وإيقاف الفيديو
-    document.querySelectorAll(".video-thumb-play").forEach((button) => {
-        button.addEventListener("click", (e) => {
-            const video = e.target.previousElementSibling;
-            
-            if (!isDragging) {
-                if (video.paused) {
-                    // عند الضغط على زر التشغيل، يتم تشغيل الفيديو
-                    video.play();
-                    e.target.style.display = "none"; // إخفاء زر التشغيل عند تشغيل الفيديو
-                } else {
-                    // عند الضغط على زر الإيقاف، يتم إيقاف الفيديو
-                    video.pause();
-                    e.target.style.display = "block"; // إظهار زر التشغيل عند إيقاف الفيديو
-                }
-            }
+        // عند بدء السحب
+        slider.addEventListener("mousedown", (e) => {
+            isDown = true;
+            isDragging = false;
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
         });
-    });
-</script>
+
+        // عند مغادرة الماوس
+        slider.addEventListener("mouseleave", () => {
+            isDown = false;
+        });
+
+        // عند رفع الماوس
+        slider.addEventListener("mouseup", () => {
+            isDown = false;
+        });
+
+        // عند تحريك الماوس
+        slider.addEventListener("mousemove", (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            isDragging = true;
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 2;
+            slider.scrollLeft = scrollLeft - walk;
+        });
+
+        // عند بدء السحب باستخدام التاتش
+        slider.addEventListener("touchstart", (e) => {
+            isDown = true;
+            isDragging = false;
+            startX = e.touches[0].pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        });
+
+        // عند تحريك التاتش
+        slider.addEventListener("touchmove", (e) => {
+            if (!isDown) return;
+            isDragging = true;
+            const x = e.touches[0].pageX - slider.offsetLeft;
+            const walk = (x - startX) * 2;
+            slider.scrollLeft = scrollLeft - walk;
+        });
+
+        // عند إنهاء السحب باستخدام التاتش
+        slider.addEventListener("touchend", () => {
+            isDown = false;
+        });
+
+        // منطق تشغيل وإيقاف الفيديو عند الضغط على الزر
+        document.querySelectorAll(".video-thumb").forEach((video) => {
+            video.addEventListener("click", () => {
+                // إذا كان الفيديو موقوفًا أو يتم تشغيله
+                if (!isDragging) {
+                    if (video.paused) {
+                        video.play();
+                    } else {
+                        video.pause();
+                    }
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
