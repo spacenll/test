@@ -1,39 +1,45 @@
-document.addEventListener("DOMContentLoaded", function () {
-    let swiperContainer = document.querySelector(".swiper");
-    let slides = document.querySelectorAll(".swiper-slide");
-    let currentIndex = 0;
+document.addEventListener("DOMContentLoaded", () => {
+    const slider = document.querySelector(".video-slider");
+    let isDown = false;
+    let startX;
+    let scrollLeft;
 
-    function updateSlider() {
-        const offset = -currentIndex * (slides[0].offsetWidth + 10);
-        swiperContainer.querySelector(".swiper-wrapper").style.transform = `translateX(${offset}px)`;
-    }
-
-    document.querySelectorAll(".video-thumb-wrapper").forEach((wrapper) => {
-        let video = wrapper.querySelector(".video-thumb");
-        let playButton = wrapper.querySelector(".video-thumb-play");
-
-        wrapper.addEventListener("click", () => {
-            if (video.paused) {
-                video.play();
-                playButton.style.display = "none";
-            } else {
-                video.pause();
-                playButton.style.display = "block";
-            }
-        });
-
-        video.addEventListener("pause", () => {
-            playButton.style.display = "block";
-        });
-
-        video.addEventListener("play", () => {
-            playButton.style.display = "none";
-        });
+    // عند الضغط على الماوس
+    slider.addEventListener("mousedown", (e) => {
+        isDown = true;
+        slider.classList.add("active");
+        startX = e.pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
     });
 
-    // Optional: Auto-slide functionality
-    setInterval(() => {
-        currentIndex = (currentIndex + 1) % slides.length;
-        updateSlider();
-    }, 3000);
+    // عند إزالة الضغط
+    slider.addEventListener("mouseleave", () => {
+        isDown = false;
+        slider.classList.remove("active");
+    });
+
+    slider.addEventListener("mouseup", () => {
+        isDown = false;
+        slider.classList.remove("active");
+    });
+
+    // عند تحريك الماوس
+    slider.addEventListener("mousemove", (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - slider.offsetLeft;
+        const walk = (x - startX) * 2; // تضخيم الحركة قليلاً
+        slider.scrollLeft = scrollLeft - walk;
+    });
+
+    // تشغيل الفيديو عند النقر
+    document.querySelectorAll(".video-thumb").forEach((video) => {
+        video.addEventListener("click", () => {
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        });
+    });
 });
