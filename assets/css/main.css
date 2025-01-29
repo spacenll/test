@@ -71,7 +71,16 @@
 body {
   color: var(--default-color);
   background-color: var(--background-color);
-  font-family: var(--default-font);
+font-family: Alexandria;
+  margin: 10px;
+
+}
+
+.alexandria-<uniquifier> {
+  font-family: "Alexandria", serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
 }
 
 a {
@@ -84,7 +93,22 @@ a:hover {
   color: color-mix(in srgb, #7d4087, transparent 25%);
   text-decoration: none;
 }
-
+#modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+ 
+  // counteract the pointer-events: none; in the .modal-dialog
+  color: var(--#{$prefix}modal-color);
+  pointer-events: auto;
+  background-color: var(--#{$prefix}modal-bg);
+  background-clip: padding-box;
+  border: var(--#{$prefix}modal-border-width) solid var(--#{$prefix}modal-border-color);
+  @include border-radius(var(--#{$prefix}modal-border-radius));
+  @include box-shadow(var(--#{$prefix}modal-box-shadow));
+  // Remove focus outline from opened modal
+  outline: 0;
+}
 h1,
 h2,
 h3,
@@ -92,7 +116,7 @@ h4,
 h5,
 h6 {
   color: var(--heading-color);
-  font-family: var(--heading-font);
+  font-family: Alexandria;
 }
 
 /* PHP Email Form Messages
@@ -316,7 +340,7 @@ h6 {
     color: var(--nav-color);
     padding: 18px 15px;
     font-size: 16px;
-    font-family: var(--nav-font);
+    font-family: Alexandria;
     font-weight: 400;
     display: flex;
     align-items: center;
@@ -435,7 +459,7 @@ h6 {
   .navmenu a:focus {
     color: var(--nav-dropdown-color);
     padding: 10px 20px;
-    font-family: var(--nav-font);
+    font-family: Alexandria;
     font-size: 17px;
     font-weight: 500;
     display: flex;
@@ -750,6 +774,7 @@ h6 {
   visibility: visible;
   opacity: 1;
   bottom: 15px;
+        color: #ffffff;
 }
 
 /*--------------------------------------------------------------
@@ -884,7 +909,7 @@ section,
   margin: 0;
   font-size: 48px;
   font-weight: 700;
-  line-height: 56px;
+line-height: 56px;
 }
 
 .hero p {
@@ -897,7 +922,7 @@ section,
 .hero .btn-get-started {
   color: var(--contrast-color);
   background: #7d4087;
-  font-family: var(--heading-font);
+  font-family: Alexandria;
   font-weight: 400;
   font-size: 15px;
   letter-spacing: 1px;
@@ -910,7 +935,7 @@ section,
 
 .hero .btn-get-started:hover {
   color: var(--contrast-color);
-  background: color-mix(in srgb, #7d4087, transparent 15%);
+background: color-mix(in srgb, #7d4087, transparent 15%);
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
 }
 
@@ -927,7 +952,7 @@ section,
   font-size: 32px;
   transition: 0.3s;
   line-height: 0;
-  margin-right: 8px;
+margin: 0 8px;
 }
 
 .hero .btn-watch-video:hover {
