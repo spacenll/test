@@ -51,6 +51,75 @@
             fullscreen: { enabled: true },
         });
     </script>
+<script>
+    const slider = document.getElementById("videoSlider");
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+    let isDragging = false;
+
+    slider.addEventListener("mousedown", (e) => {
+        isDown = true;
+        isDragging = false;
+        startX = e.pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
+    });
+
+    slider.addEventListener("mouseleave", () => {
+        isDown = false;
+    });
+
+    slider.addEventListener("mouseup", () => {
+        isDown = false;
+    });
+
+    slider.addEventListener("mousemove", (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        isDragging = true;
+        const x = e.pageX - slider.offsetLeft;
+        const walk = (x - startX) * 2;
+        slider.scrollLeft = scrollLeft - walk;
+    });
+
+    slider.addEventListener("touchstart", (e) => {
+        isDown = true;
+        isDragging = false;
+        startX = e.touches[0].pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
+    });
+
+    slider.addEventListener("touchmove", (e) => {
+        if (!isDown) return;
+        isDragging = true;
+        const x = e.touches[0].pageX - slider.offsetLeft;
+        const walk = (x - startX) * 2;
+        slider.scrollLeft = scrollLeft - walk;
+    });
+
+    slider.addEventListener("touchend", () => {
+        isDown = false;
+    });
+
+    // تحديث منطق تشغيل وإيقاف الفيديو
+    document.querySelectorAll(".video-thumb-play").forEach((button) => {
+        button.addEventListener("click", (e) => {
+            const video = e.target.previousElementSibling;
+            
+            if (!isDragging) {
+                if (video.paused) {
+                    // عند الضغط على زر التشغيل، يتم تشغيل الفيديو
+                    video.play();
+                    e.target.style.display = "none"; // إخفاء زر التشغيل عند تشغيل الفيديو
+                } else {
+                    // عند الضغط على زر الإيقاف، يتم إيقاف الفيديو
+                    video.pause();
+                    e.target.style.display = "block"; // إظهار زر التشغيل عند إيقاف الفيديو
+                }
+            }
+        });
+    });
+</script>
 
 </body>
 </html>
