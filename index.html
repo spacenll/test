@@ -1,157 +1,61 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>حملة تسويقية</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background: linear-gradient(135deg, #ff6b6b, #feca57, #48dbfb, #1dd1a1);
-      background-size: 300% 300%;
-      animation: backgroundAnimation 10s infinite;
-    }
-
-    @keyframes backgroundAnimation {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    .container {
-      text-align: center;
-      color: black;
-    }
-
-    .description {
-      font-size: 18px;
-      margin-bottom: 30px;
-    }
-
-    .start-button {
-      background-color: #1e272e;
-      color: white;
-      border: none;
-      padding: 15px 30px;
-      font-size: 20px;
-      border-radius: 50px;
-      cursor: pointer;
-      transition: transform 0.3s ease, background-color 0.3s ease;
-    }
-
-    .start-button:hover {
-      transform: scale(1.1);
-      background-color: #576574;
-    }
-
-    .effect-container {
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .progress-circle {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      border: 10px solid #2e86de;
-      border-top: 10px solid white;
-      animation: spin 1s linear infinite;
-    }
-
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    .percentage {
-      margin-top: 15px;
-      font-size: 24px;
-      color: black;
-    }
-
-    .final-message {
-      display: none;
-      position: relative;
-      font-size: 36px;
-      text-align: center;
-      color: black;
-      background: rgba(255, 255, 255, 0.9);
-      padding: 30px 50px;
-      border-radius: 10px;
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    }
-
-    .close-button {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: none;
-      border: none;
-      font-size: 20px;
-      cursor: pointer;
-      color: #999;
-      transition: color 0.3s ease;
-    }
-
-    .close-button:hover {
-      color: #333;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Slider with Video</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <h1>حملة تسويقية</h1>
-    <p class="description"></p>
-    <button class="start-button" onclick="startCampaign()">بدء الحملة الآن</button>
-    <div class="effect-container">
-      <div class="progress-circle"></div>
-      <div class="percentage">0%</div>
-    </div>
-    <div class="final-message">
-      <button class="close-button" onclick="closeMessage()">×</button>
-      ماذا لو؟...
-    </div>
-  </div>
 
-  <script>
-    function startCampaign() {
-      const button = document.querySelector('.start-button');
-      const effectContainer = document.querySelector('.effect-container');
-      const percentageText = document.querySelector('.percentage');
-      const finalMessage = document.querySelector('.final-message');
+    <section class="home-slider">
+        <div class="container-extra-wide">
+            <h2 class="section-title">Featured Videos</h2>
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <!-- Video Slide 1 -->
+                    <div class="swiper-slide">
+                        <div class="video-thumb-wrapper">
+                            <video class="video-thumb" src="video1.mp4" poster="poster1.jpg"></video>
+                            <button class="video-thumb-play">▶</button>
+                        </div>
+                        <p class="video-title">Amazing Adventure</p>
+                        <div class="video-actions">
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
 
-      button.style.display = 'none';
-      effectContainer.style.display = 'flex';
+                    <!-- Video Slide 2 -->
+                    <div class="swiper-slide">
+                        <div class="video-thumb-wrapper">
+                            <video class="video-thumb" src="video2.mp4" poster="poster2.jpg"></video>
+                            <button class="video-thumb-play">▶</button>
+                        </div>
+                        <p class="video-title">Nature's Beauty</p>
+                        <div class="video-actions">
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
 
-      let percentage = 0;
+                    <!-- Video Slide 3 -->
+                    <div class="swiper-slide">
+                        <div class="video-thumb-wrapper">
+                            <video class="video-thumb" src="video3.mp4" poster="poster3.jpg"></video>
+                            <button class="video-thumb-play">▶</button>
+                        </div>
+                        <p class="video-title">City Lights</p>
+                        <div class="video-actions">
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
 
-      const interval = setInterval(() => {
-        percentage += Math.floor(Math.random() * 2) + 1; // زيادة أسرع
-        if (percentage >= 99) percentage = 99;
-        percentageText.textContent = `${percentage}%`;
+                    <!-- Add more slides as needed -->
+                </div>
+            </div>
+        </div>
+    </section>
 
-        if (percentage === 99) {
-          clearInterval(interval);
-          setTimeout(() => {
-            effectContainer.style.display = 'none';
-            finalMessage.style.display = 'block';
-          }, 1000);
-        }
-      }, 25); // زمن التحديث سريع
-    }
+    <script src="script.js"></script>
 
-    function closeMessage() {
-      const finalMessage = document.querySelector('.final-message');
-      finalMessage.style.display = 'none';
-    }
-  </script>
 </body>
 </html>
