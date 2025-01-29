@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link rel="stylesheet" href="style.css">
-  
+    <title>سلايدر فيديو بالسحب</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -91,11 +91,15 @@
                 const video = e.target.previousElementSibling;
                 if (!isDragging) {
                     if (video.paused) {
+                        // Pause all other videos
+                        document.querySelectorAll("video").forEach((v) => {
+                            if (v !== video) v.pause();
+                        });
                         video.play();
-                        e.target.style.display = "none";
+                        e.target.style.display = "none"; // Hide play button when video plays
                     } else {
                         video.pause();
-                        e.target.style.display = "block";
+                        e.target.style.display = "block"; // Show play button when video pauses
                     }
                 }
             });
