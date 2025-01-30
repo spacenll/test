@@ -308,6 +308,7 @@ h6 {
   background: radial-gradient(#7d4087 50%, color-mix(in srgb, #7d4087, transparent 75%) 52%);
   border-radius: 50%;
   display: block;
+      right: 35%;
   position: relative;
   overflow: hidden;
 }
