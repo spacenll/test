@@ -3,7 +3,7 @@
             width: 100%;
             height: 100%;
             overflow: hidden;
-            position: relative;
+        position: relative;
         }
 
         .image-wrapper {
@@ -159,7 +159,7 @@ section1 {
 
 .swiper-slide--one {
   background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
-    url("https://spacenll.github.io/test/assets/img/1%20(1).png")
+    url("../img/1 (1).png")
       no-repeat 50% 50% / cover;
 }
 
