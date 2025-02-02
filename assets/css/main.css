@@ -775,7 +775,7 @@ h6 {
     direction: rtl;
 }
 .social-links{
-   place-content: center;
+   place-content: right;
 }
 .footer .social-links a {
   display: flex;
