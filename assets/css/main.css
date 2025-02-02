@@ -159,34 +159,43 @@ section1 {
 
 .swiper-slide--one {
   background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
-    url("../img/1 (1).png")
+    url("../img/2.png")
       no-repeat 50% 50% / cover;
 }
 
 .swiper-slide--two {
   background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
-    url("https://spacenll.github.io/test/assets/img/1%20(2).png")
+    url("../img/1.png")
       no-repeat 50% 50% / cover;
 }
 
 .swiper-slide--three {
   background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
-    url("https://spacenll.github.io/test/assets/img/1%20(3).png")
+    url("../img/3.png")
       no-repeat 50% 50% / cover;
 }
 
 .swiper-slide--four {
   background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
-    url("https://spacenll.github.io/test/assets/img/1%20(4).png")
+    url("../img/4.png")
       no-repeat 50% 50% / cover;
 }
 
 .swiper-slide--five {
   background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
-    url("https://spacenll.github.io/test/assets/img/1%20(5).png")
+    url("../img/5.png")
       no-repeat 50% 50% / cover;
 }
-
+.swiper-slide--six {
+  background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+    url("../img/6.png")
+      no-repeat 50% 50% / cover;
+}
+.swiper-slide--seven {
+  background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+    url("../img/7.png")
+      no-repeat 50% 50% / cover;
+}
 .swiper-3d .swiper-slide-shadow-left,
 .swiper-3d .swiper-slide-shadow-right {
   background-image: none;
