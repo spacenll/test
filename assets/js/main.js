@@ -5,7 +5,71 @@
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
+const imageWrapper = document.querySelector('.image-wrapper');
+let isDragging = false;
+let startX, scrollLeft;
 
+// إيقاف الحركة عند النقر
+imageWrapper.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    startX = e.pageX - imageWrapper.offsetLeft;
+    scrollLeft = imageWrapper.scrollLeft;
+    imageWrapper.style.animationPlayState = 'paused'; // إيقاف الحركة
+});
+
+// السماح بالسحب
+imageWrapper.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.pageX - imageWrapper.offsetLeft;
+    const walk = (x - startX); // سرعة السحب
+    imageWrapper.scrollLeft = scrollLeft - walk;
+});
+
+// استئناف الحركة بعد التوقف عن السحب
+imageWrapper.addEventListener('mouseup', () => {
+    isDragging = false;
+    imageWrapper.style.animationPlayState = 'running'; // استئناف الحركة
+});
+
+imageWrapper.addEventListener('mouseleave', () => {
+    isDragging = false;
+    imageWrapper.style.animationPlayState = 'running'; // استئناف الحركة
+});
+
+   document.addEventListener("DOMContentLoaded", function () {
+            // منع النقر بزر الفأرة الأيمن على الصور
+            document.querySelectorAll("img").forEach(img => {
+                img.addEventListener("contextmenu", function (e) {
+                    e.preventDefault();
+            
+                });
+
+                // منع الضغط المطوّل على الصور (للأجهزة التي تعمل باللمس)
+                img.addEventListener("touchstart", function (e) {
+                    e.preventDefault();
+                });
+
+                img.addEventListener("mousedown", function (e) {
+                    e.preventDefault();
+                });
+            });
+
+            // منع الضغط المطوّل على كامل الصفحة (لمنع حفظ الصورة على Android)
+            document.addEventListener("contextmenu", function (e) {
+                e.preventDefault();
+            });
+
+            document.addEventListener("touchstart", function (e) {
+                if (e.touches.length > 1) { // التأكد من أنه ليس مجرد لمسة واحدة
+                    e.preventDefault();
+                }
+            }, { passive: false });
+
+            document.addEventListener("mousedown", function (e) {
+                e.preventDefault();
+            });
+        });
 (function() {
   "use strict";
 
