@@ -87,7 +87,6 @@ section1 {
   width: 300px;
   height: 400px;
   box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
-  filter: blur(1px);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -96,7 +95,7 @@ section1 {
 }
 
 .swiper-slide-active {
-  filter: blur(0px);
+
 }
 
 .swiper-pagination-bullet,
