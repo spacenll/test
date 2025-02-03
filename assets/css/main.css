@@ -16,7 +16,7 @@
     object-fit: cover; /* تغطية الصورة بالكامل */
     flex-shrink: 0; /* الحفاظ على الحجم */
     pointer-events: none; /* منع تفاعل المستخدم مع الصورة */
--webkit-user-drag: none;
+
   
 }
 
@@ -479,7 +479,7 @@ h6 {
   max-height: 75px;
   margin-right: 8px;
       pointer-events: none; /* منع تفاعل المستخدم مع الصورة */
--webkit-user-drag: none;
+
 }
 
 .header .logo h1 {
@@ -1589,7 +1589,7 @@ border-radius: 35px;
   object-fit: cover;
   z-index: 1;
       pointer-events: none; /* منع تفاعل المستخدم مع الصورة */
--webkit-user-drag: none;
+
 }
 
 .call-to-action:before {
