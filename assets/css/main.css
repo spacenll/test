@@ -222,6 +222,26 @@ section1 {
     url("../img/12.png")
       no-repeat 50% 50% / cover;
 }
+.swiper-slide--13 {
+  background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+    url("../img/13.png")
+      no-repeat 50% 50% / cover;
+}
+.swiper-slide--14 {
+  background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+    url("../img/14.png")
+      no-repeat 50% 50% / cover;
+}
+.swiper-slide--15 {
+  background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+    url("../img/15.png")
+      no-repeat 50% 50% / cover;
+}
+.swiper-slide--16 {
+  background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+    url("../img/16.png")
+      no-repeat 50% 50% / cover;
+}
 .swiper-3d .swiper-slide-shadow-left,
 .swiper-3d .swiper-slide-shadow-right {
   background-image: none;
