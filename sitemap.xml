@@ -1,39 +1,164 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+
+    <!-- صفحات الموقع -->
     <url>
         <loc>http://marktech-agency.com/</loc>
-        <lastmod>2024-02-01</lastmod>
+        <lastmod>2025-02-02</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
         <loc>http://marktech-agency.com/#about</loc>
-        <lastmod>2024-02-01</lastmod>
+        <lastmod>2025-02-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://marktech-agency.com/#services</loc>
-        <lastmod>2024-02-01</lastmod>
+        <lastmod>2025-02-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://marktech-agency.com/#clients</loc>
-        <lastmod>2024-02-01</lastmod>
+        <lastmod>2025-02-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>http://marktech-agency.com/#partners</loc>
-        <lastmod>2024-02-01</lastmod>
+        <lastmod>2025-02-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>http://marktech-agency.com/#contact</loc>
-        <lastmod>2024-02-01</lastmod>
+        <lastmod>2025-02-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
+
+    <!-- فيديوهات صفحة Partners -->
+    <url>
+        <loc>http://marktech-agency.com/#partners</loc>
+        <video:video>
+            <video:thumbnail_loc>https://marktech-agency.com/assets/img/2.png</video:thumbnail_loc>
+            <video:title>حملة ديليكاتو كتشن</video:title>
+            <video:description>حملة ديليكاتو كيتشن بعنوان حكاية لمتنا العائلية</video:description>
+            <video:content_loc>https://marktech-agency.com/assets/video/2.mp4</video:content_loc>
+        </video:video>
+    </url>
+
+    <url>
+        <loc>http://marktech-agency.com/#partners</loc>
+        <video:video>
+            <video:thumbnail_loc>https://marktech-agency.com/assets/img/1.png</video:thumbnail_loc>
+            <video:title>حملة مكة</video:title>
+            <video:description>حملة مكة لاتنسى هدايا الغاليين</video:description>
+            <video:content_loc>https://marktech-agency.com/assets/video/1.mp4</video:content_loc>
+        </video:video>
+    </url>
+
+    <url>
+        <loc>http://marktech-agency.com/#partners</loc>
+        <video:video>
+            <video:thumbnail_loc>https://marktech-agency.com/assets/img/3.png</video:thumbnail_loc>
+            <video:title>احمد السعدي</video:title>
+            <video:description>اعلان منزلي</video:description>
+            <video:content_loc>https://marktech-agency.com/assets/video/3.mp4</video:content_loc>
+        </video:video>
+    </url>
+
+    <url>
+        <loc>http://marktech-agency.com/#partners</loc>
+        <video:video>
+            <video:thumbnail_loc>https://marktech-agency.com/assets/img/4.png</video:thumbnail_loc>
+            <video:title>محمد العريمي</video:title>
+            <video:description>اعلان ممول للماجد للعود</video:description>
+            <video:content_loc>https://marktech-agency.com/assets/video/4.mp4</video:content_loc>
+        </video:video>
+    </url>
+
+    <url>
+        <loc>http://marktech-agency.com/#partners</loc>
+        <video:video>
+            <video:thumbnail_loc>https://marktech-agency.com/assets/img/5.png</video:thumbnail_loc>
+            <video:title>بريانكا</video:title>
+            <video:description>اعلان زيارة لشركة بيما</video:description>
+            <video:content_loc>https://marktech-agency.com/assets/video/5.mp4</video:content_loc>
+        </video:video>
+    </url>
+
+    <url>
+        <loc>http://marktech-agency.com/#partners</loc>
+        <video:video>
+            <video:thumbnail_loc>https://marktech-agency.com/assets/img/6.png</video:thumbnail_loc>
+            <video:title>رايتشل</video:title>
+            <video:description>اعلان زيارة لشركة بيما</video:description>
+            <video:content_loc>https://marktech-agency.com/assets/video/6.mp4</video:content_loc>
+        </video:video>
+    </url>
+
+    <url>
+        <loc>http://marktech-agency.com/#partners</loc>
+        <video:video>
+            <video:thumbnail_loc>https://marktech-agency.com/assets/img/7.png</video:thumbnail_loc>
+            <video:title>بدور المنذري</video:title>
+            <video:description>اعلان زيارة للرونق للعطور</video:description>
+            <video:content_loc>https://marktech-agency.com/assets/video/7.mp4</video:content_loc>
+        </video:video>
+    </url>
+
+    <url>
+        <loc>http://marktech-agency.com/#partners</loc>
+        <video:video>
+            <video:thumbnail_loc>https://marktech-agency.com/assets/img/8.png</video:thumbnail_loc>
+            <video:title>مجومبا</video:title>
+            <video:description>اعلان لايف ستايل</video:description>
+            <video:content_loc>https://marktech-agency.com/assets/video/8.mp4</video:content_loc>
+        </video:video>
+    </url>
+
+    <url>
+        <loc>http://marktech-agency.com/#partners</loc>
+        <video:video>
+            <video:thumbnail_loc>https://marktech-agency.com/assets/img/9.png</video:thumbnail_loc>
+            <video:title>المختار الصقيري</video:title>
+            <video:description>اعلان زيارة للماجد للعطور</video:description>
+            <video:content_loc>https://marktech-agency.com/assets/video/9.mp4</video:content_loc>
+        </video:video>
+    </url>
+
+    <url>
+        <loc>http://marktech-agency.com/#partners</loc>
+        <video:video>
+            <video:thumbnail_loc>https://marktech-agency.com/assets/img/10.png</video:thumbnail_loc>
+            <video:title>بسمة ال عيسى</video:title>
+            <video:description>اعلان تذكيري للماجد للعطور</video:description>
+            <video:content_loc>https://marktech-agency.com/assets/video/10.mp4</video:content_loc>
+        </video:video>
+    </url>
+
+    <url>
+        <loc>http://marktech-agency.com/#partners</loc>
+        <video:video>
+            <video:thumbnail_loc>https://marktech-agency.com/assets/img/11.png</video:thumbnail_loc>
+            <video:title>ملوك الشبلي</video:title>
+            <video:description>اعلان تذكيري للماجد للعطور</video:description>
+            <video:content_loc>https://marktech-agency.com/assets/video/11.mp4</video:content_loc>
+        </video:video>
+    </url>
+
+    <url>
+        <loc>http://marktech-agency.com/#partners</loc>
+        <video:video>
+            <video:thumbnail_loc>https://marktech-agency.com/assets/img/12.png</video:thumbnail_loc>
+            <video:title>احمد مراد</video:title>
+            <video:description>اعلان زيارة للماجد للعطور</video:description>
+            <video:content_loc>https://marktech-agency.com/assets/video/12.mp4</video:content_loc>
+        </video:video>
+    </url>
+
 </urlset>
