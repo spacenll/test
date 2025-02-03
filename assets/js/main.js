@@ -1,32 +1,37 @@
-/**
-* Template Name: eNno
-* Template URL: https://bootstrapmade.com/enno-free-simple-bootstrap-template/
-* Updated: Aug 07 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
 const imageWrapper = document.querySelector('.image-wrapper');
 let isDragging = false;
-let startX, scrollLeft;
+let startX, scrollLeft, startY, startScrollTop;
 
-// إيقاف الحركة عند النقر
+// عند النقر بالماوس
 imageWrapper.addEventListener('mousedown', (e) => {
     isDragging = true;
     startX = e.pageX - imageWrapper.offsetLeft;
+    startY = e.pageY;
     scrollLeft = imageWrapper.scrollLeft;
-    imageWrapper.style.animationPlayState = 'paused'; // إيقاف الحركة
+    startScrollTop = window.scrollY; // حفظ موضع التمرير الرأسي
+    imageWrapper.style.animationPlayState = 'paused'; // إيقاف أي حركة تلقائية
 });
 
-// السماح بالسحب
+// عند تحريك الماوس (السحب)
 imageWrapper.addEventListener('mousemove', (e) => {
     if (!isDragging) return;
     e.preventDefault();
+
     const x = e.pageX - imageWrapper.offsetLeft;
-    const walk = (x - startX); // سرعة السحب
-    imageWrapper.scrollLeft = scrollLeft - walk;
+    const y = e.pageY;
+    const walkX = (x - startX); // المسافة الأفقية
+    const walkY = (y - startY); // المسافة الرأسية
+
+    if (Math.abs(walkY) > Math.abs(walkX)) {
+        // السماح بالتمرير العمودي
+        window.scrollTo(0, startScrollTop - walkY);
+    } else {
+        // تحريك العنصر أفقيًا فقط إذا كان السحب أفقيًا
+        imageWrapper.scrollLeft = scrollLeft - walkX;
+    }
 });
 
-// استئناف الحركة بعد التوقف عن السحب
+// عند إفلات الزر
 imageWrapper.addEventListener('mouseup', () => {
     isDragging = false;
     imageWrapper.style.animationPlayState = 'running'; // استئناف الحركة
@@ -37,39 +42,27 @@ imageWrapper.addEventListener('mouseleave', () => {
     imageWrapper.style.animationPlayState = 'running'; // استئناف الحركة
 });
 
-   document.addEventListener("DOMContentLoaded", function () {
-            // منع النقر بزر الفأرة الأيمن على الصور
-            document.querySelectorAll("img").forEach(img => {
-                img.addEventListener("contextmenu", function (e) {
-                    e.preventDefault();
-            
-                });
-
-                // منع الضغط المطوّل على الصور (للأجهزة التي تعمل باللمس)
-                img.addEventListener("touchstart", function (e) {
-                    e.preventDefault();
-                });
-
-                img.addEventListener("mousedown", function (e) {
-                    e.preventDefault();
-                });
-            });
-
-            // منع الضغط المطوّل على كامل الصفحة (لمنع حفظ الصورة على Android)
-            document.addEventListener("contextmenu", function (e) {
-                e.preventDefault();
-            });
-
-            document.addEventListener("touchstart", function (e) {
-                if (e.touches.length > 1) { // التأكد من أنه ليس مجرد لمسة واحدة
-                    e.preventDefault();
-                }
-            }, { passive: false });
-
-            document.addEventListener("mousedown", function (e) {
-                e.preventDefault();
-            });
+// **تعديل منع الضغط المطوّل والنقر الأيمن بحيث لا يؤثر على التمرير**
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll("img").forEach(img => {
+        img.addEventListener("contextmenu", function (e) {
+            e.preventDefault();
         });
+
+        // السماح بالتمرير عند السحب لأعلى/أسفل
+        img.addEventListener("touchstart", function (e) {
+            if (e.touches.length > 1) {
+                e.preventDefault();
+            }
+        }, { passive: true });
+    });
+
+    // منع القائمة السياقية على مستوى الصفحة
+    document.addEventListener("contextmenu", function (e) {
+        e.preventDefault();
+    });
+});
+
 (function() {
   "use strict";
 
