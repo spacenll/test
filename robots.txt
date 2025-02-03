@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /cart/
+Disallow: /checkout/
+Disallow: /my-account/
+Disallow: /wp-login.php
+Disallow: /wp-signup.php
+
+Sitemap: http://marktech-agency.com/sitemap.xml
