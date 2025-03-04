@@ -88,7 +88,7 @@ section1 {
 }
 .swiper-slide {
   width: 300px;
-  height: 400px;
+  height: 450px;
   box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
     padding-bottom: 20px;
@@ -99,7 +99,7 @@ section1 {
 }
 
 .swiper-slide-active {
-
+  height: 480px;
 }
 
 .swiper-pagination-bullet,
@@ -111,7 +111,7 @@ section1 {
   text-transform: uppercase;
   color: #fff;
   background: #753d7e;
-  padding: 7px 18px 7px 25px;
+  padding: 7px 18px 7px 18px;
   display: inline-block;
   border-radius: 20px 20px 0px 20px;
   letter-spacing: 2px;
